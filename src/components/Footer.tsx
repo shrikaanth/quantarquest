@@ -1,0 +1,126 @@
+import { Calendar, MessageCircle, Zap, Mail, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+export default function Footer() {
+  const footerLinks = {
+    company: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Services', href: '/services' },
+      { label: 'Contact', href: '/contact' }
+    ],
+    services: [
+      { label: 'AI & Automation', href: '/services#ai-automation' },
+      { label: 'SaaS Engineering', href: '/services#saas' },
+      { label: 'C2H + DRM Teams', href: '/services#c2h-drm' },
+      { label: 'BIM / AEC', href: '/services#bim' }
+    ],
+    contact: [
+      { icon: Mail, label: 'info@quantarquest.com', href: 'mailto:info@quantarquest.com' },
+      { icon: Phone, label: '+1 (555) 000-0000', href: 'tel:+15550000000' },
+      { icon: MapPin, label: 'Global Operations', href: '/contact#map' }
+    ]
+  };
+
+  return (
+    <footer className="relative bg-slate-950 border-t border-white/10 overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[150px]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-glow animate-glow">
+                <Zap className="w-7 h-7 text-white" fill="currentColor" />
+              </div>
+              <div className="text-2xl font-black text-gradient">
+                Quantar Quest
+              </div>
+            </div>
+            <p className="text-slate-400 leading-relaxed mb-6">
+              Your Team, On Your Terms. <span className="text-cyan-400">Own Everything.</span>
+            </p>
+            <p className="text-slate-500 text-sm">
+              Building resilient teams for markets that never stop moving.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-white font-bold mb-4">Company</h3>
+            <ul className="space-y-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-bold mb-4">Services</h3>
+            <ul className="space-y-3">
+              {footerLinks.services.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-bold mb-4">Contact</h3>
+            <ul className="space-y-3">
+              {footerLinks.contact.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors"
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span className="text-sm">{item.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <a
+            href="#consultation"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl glass-effect text-white font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group"
+          >
+            <Calendar className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            Book Consultation
+          </a>
+          <a
+            href="#whatsapp"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 text-white font-medium hover:shadow-glow-lg transition-all duration-300 transform hover:scale-105 group"
+          >
+            <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            WhatsApp Us
+          </a>
+        </div>
+
+        <div className="pt-8 border-t border-white/10 text-center">
+          <p className="text-slate-400">
+            © {new Date().getFullYear()} <span className="text-cyan-400 font-semibold">Quantar Quest</span>. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
