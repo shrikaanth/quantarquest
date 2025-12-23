@@ -1,4 +1,4 @@
-import { Calendar, MessageCircle, Zap, Menu, X } from 'lucide-react';
+import { Calendar, MessageCircle, Hexagon, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ export default function Navigation() {
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-glow animate-glow">
-                <Zap className="w-6 h-6 text-white" fill="currentColor" />
+                <Hexagon className="w-6 h-6 text-white" fill="currentColor" />
               </div>
               <div className="text-2xl font-bold text-gradient">
                 Quantar Quest

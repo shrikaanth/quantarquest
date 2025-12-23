@@ -1,4 +1,4 @@
-import { Calendar, MessageCircle, Zap, Mail, MapPin, Phone } from 'lucide-react';
+import { Calendar, MessageCircle, Hexagon, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -31,7 +31,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-glow animate-glow">
-                <Zap className="w-7 h-7 text-white" fill="currentColor" />
+                <Hexagon className="w-7 h-7 text-white" fill="currentColor" />
               </div>
               <div className="text-2xl font-black text-gradient">
                 Quantar Quest

@@ -1,4 +1,4 @@
-import { Target, Users, Globe, Layers, Shield, Zap, TrendingUp, CheckCircle, ArrowRight, Calendar, MessageCircle } from 'lucide-react';
+import { Target, Users, Globe, Layers, Shield, Hexagon, TrendingUp, CheckCircle, ArrowRight, Calendar, MessageCircle } from 'lucide-react';
 import Card3D from './Card3D';
 import WaveBackground from './WaveBackground';
 import FloatingShapes from './FloatingShapes';
@@ -14,7 +14,7 @@ export default function About() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-glow animate-glow">
-                <Zap className="w-6 h-6 text-white" fill="currentColor" />
+                <Hexagon className="w-6 h-6 text-white" fill="currentColor" />
               </div>
               <div className="text-2xl font-bold text-gradient">
                 Quantar Quest
@@ -55,7 +55,7 @@ export default function About() {
                 </div>
               </div>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6">
-                <span className="block text-white drop-shadow-2xl">Building Resilient Teams</span>
+                <span className="block text-white">Building Resilient Teams</span>
                 <span className="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                   For Markets That Never Stop
                 </span>
@@ -80,7 +80,7 @@ export default function About() {
 
               <Card3D className="p-8 glass-effect rounded-2xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center mb-6 shadow-glow">
-                  <Zap className="w-8 h-8 text-white" fill="currentColor" />
+                  <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Mission</h3>
                 <p className="text-slate-300 leading-relaxed">
@@ -118,9 +118,6 @@ export default function About() {
               <Card3D>
                 <div className="p-8 rounded-2xl glass-effect border border-red-500/20 h-full">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
-                      <span className="text-2xl">⚠️</span>
-                    </div>
                     <h3 className="text-2xl font-bold text-white">The Problems</h3>
                   </div>
                   <ul className="space-y-4">
@@ -148,14 +145,14 @@ export default function About() {
                   </div>
                   <ul className="space-y-4">
                     {[
-                      { text: 'C2H + DRM teams that plug into your rituals', icon: '🔌' },
-                      { text: 'Ownership by default — code, pipelines, infra, docs', icon: '🔑' },
-                      { text: 'Elasticity without chaos — scale on demand', icon: '📈' },
-                      { text: 'Transparent commercials — no surprises', icon: '💎' }
+                      'C2H + DRM teams that plug into your rituals',
+                      'Ownership by default — code, pipelines, infra, docs',
+                      'Elasticity without chaos — scale on demand',
+                      'Transparent commercials — no surprises'
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <span className="text-xl flex-shrink-0">{item.icon}</span>
-                        <p className="text-slate-300 text-lg leading-relaxed">{item.text}</p>
+                        <div className="w-2 h-2 mt-2 rounded-full bg-emerald-400 flex-shrink-0" />
+                        <p className="text-slate-300 text-lg leading-relaxed">{item}</p>
                       </li>
                     ))}
                   </ul>
@@ -243,14 +240,13 @@ export default function About() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { title: 'AI & Automation', items: ['Data pipelines', 'Workflow engines', 'LLM ops'], icon: '🤖', gradient: 'from-blue-500 to-cyan-500' },
-                { title: 'SaaS Engineering', items: ['APIs', 'Microservices', 'Mobile/Web'], icon: '⚡', gradient: 'from-cyan-500 to-emerald-500' },
-                { title: 'QA Engineering', items: ['Automation suites', 'Performance testing', 'CI/CD'], icon: '✅', gradient: 'from-emerald-500 to-blue-500' },
-                { title: 'BIM / AEC', items: ['Revit/IFC', 'Clash detection', 'Coordination'], icon: '🏗️', gradient: 'from-blue-500 to-cyan-500' }
+                { title: 'AI & Automation', items: ['Data pipelines', 'Workflow engines', 'LLM ops'], gradient: 'from-blue-500 to-cyan-500' },
+                { title: 'SaaS Engineering', items: ['APIs', 'Microservices', 'Mobile/Web'], gradient: 'from-cyan-500 to-emerald-500' },
+                { title: 'QA Engineering', items: ['Automation suites', 'Performance testing', 'CI/CD'], gradient: 'from-emerald-500 to-blue-500' },
+                { title: 'BIM / AEC', items: ['Revit/IFC', 'Clash detection', 'Coordination'], gradient: 'from-blue-500 to-cyan-500' }
               ].map((category, index) => (
                 <Card3D key={index} className="group">
                   <div className="p-6 rounded-2xl glass-effect border border-white/10 hover:border-cyan-500/40 transition-all duration-300 h-full">
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{category.icon}</div>
                     <h3 className="text-xl font-bold text-white mb-3">{category.title}</h3>
                     <ul className="space-y-2">
                       {category.items.map((item, i) => (
@@ -339,16 +335,16 @@ export default function About() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: 'Ownership first', description: 'Repos, pipelines, infra, docs: yours on day one.', icon: '🔑' },
-                { title: 'Adaptive architecture', description: 'Modular, event-driven, graceful degradation.', icon: '🏗️' },
-                { title: 'Direct access', description: 'No middle layers between you and the team.', icon: '⚡' },
-                { title: 'Transparent costs', description: 'Clear burn, forecasted velocity, opt-out cliffs.', icon: '💎' },
-                { title: 'Security baked-in', description: 'Least privilege, rotation, auditability.', icon: '🔒' },
-                { title: 'No hostages', description: 'Exit anytime and keep everything.', icon: '🚀' }
+                { title: 'Ownership first', description: 'Repos, pipelines, infra, docs: yours on day one.', gradient: 'from-blue-500 to-cyan-500' },
+                { title: 'Adaptive architecture', description: 'Modular, event-driven, graceful degradation.', gradient: 'from-cyan-500 to-emerald-500' },
+                { title: 'Direct access', description: 'No middle layers between you and the team.', gradient: 'from-emerald-500 to-blue-500' },
+                { title: 'Transparent costs', description: 'Clear burn, forecasted velocity, opt-out cliffs.', gradient: 'from-blue-500 to-cyan-500' },
+                { title: 'Security baked-in', description: 'Least privilege, rotation, auditability.', gradient: 'from-cyan-500 to-emerald-500' },
+                { title: 'No hostages', description: 'Exit anytime and keep everything.', gradient: 'from-emerald-500 to-blue-500' }
               ].map((principle, index) => (
                 <Card3D key={index} className="group">
                   <div className="p-6 rounded-2xl glass-effect border border-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{principle.icon}</div>
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${principle.gradient} mb-4 group-hover:scale-110 transition-transform`}></div>
                     <h3 className="text-lg font-bold text-white mb-2">{principle.title}</h3>
                     <p className="text-slate-300 text-sm leading-relaxed">{principle.description}</p>
                   </div>
@@ -370,15 +366,15 @@ export default function About() {
               <div className="p-8 rounded-2xl glass-effect border border-cyan-500/20">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    { metric: 'Stability under load', detail: 'SLOs > vanity traffic', icon: '📊' },
-                    { metric: 'Change failure rate ↓', detail: 'Safer deploys, fewer rollbacks', icon: '✅' },
-                    { metric: 'Lead time for changes ↓', detail: 'Small, frequent, reversible', icon: '⚡' },
-                    { metric: 'Handover readiness', detail: 'Zero knowledge debt', icon: '📚' },
-                    { metric: 'Cost traceability', detail: 'People + infra — visible and predictable', icon: '💰' },
-                    { metric: 'Client trust', detail: 'They can leave without losing anything', icon: '🤝' }
+                    { metric: 'Stability under load', detail: 'SLOs > vanity traffic', gradient: 'from-blue-500 to-cyan-500' },
+                    { metric: 'Change failure rate ↓', detail: 'Safer deploys, fewer rollbacks', gradient: 'from-cyan-500 to-emerald-500' },
+                    { metric: 'Lead time for changes ↓', detail: 'Small, frequent, reversible', gradient: 'from-emerald-500 to-blue-500' },
+                    { metric: 'Handover readiness', detail: 'Zero knowledge debt', gradient: 'from-blue-500 to-cyan-500' },
+                    { metric: 'Cost traceability', detail: 'People + infra — visible and predictable', gradient: 'from-cyan-500 to-emerald-500' },
+                    { metric: 'Client trust', detail: 'They can leave without losing anything', gradient: 'from-emerald-500 to-blue-500' }
                   ].map((item, index) => (
                     <div key={index} className="group">
-                      <div className="text-3xl mb-3 group-hover:scale-110 transition-transform">{item.icon}</div>
+                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${item.gradient} mb-3 group-hover:scale-110 transition-transform`}></div>
                       <h4 className="text-lg font-bold text-white mb-2">{item.metric}</h4>
                       <p className="text-slate-300 text-sm">{item.detail}</p>
                     </div>
@@ -466,28 +462,67 @@ export default function About() {
 
         <section className="relative py-16 bg-slate-900/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card3D>
-              <div className="p-8 rounded-2xl glass-effect border border-emerald-500/30">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-glow">
-                    <Layers className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-3">
-                      Future Scope — Expanding Into <span className="text-gradient">D2H & FTE</span>
-                    </h3>
-                    <p className="text-slate-300 leading-relaxed mb-4">
-                      Quantar Quest's upcoming roadmap also includes Dedicated-to-Hire (D2H) and Full-Time Employment (FTE) models,
-                      offering enterprises permanent continuity options after successful contract engagements.
-                    </p>
-                    <p className="text-slate-300 leading-relaxed">
-                      These future extensions will provide a seamless evolution from C2H + DRM to long-term in-house ownership —
-                      without any friction or rebuilds.
-                    </p>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+                <span className="text-gradient">Future Scope</span>
+              </h2>
+              <p className="text-xl text-slate-300">Expanding your options as trust deepens</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                {
+                  title: 'D2H & FTE roadmap',
+                  gradient: 'from-emerald-500 to-cyan-500',
+                  flip: 'As trust deepens, teams can move fully into your company smoothly and legally.'
+                },
+                {
+                  title: 'Continuity guaranteed',
+                  gradient: 'from-cyan-500 to-blue-500',
+                  flip: 'No matter the model, ownership and control always remain with you.'
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="group relative h-64 perspective cursor-pointer"
+                >
+                  <div
+                    className="relative w-full h-full transition-transform duration-500"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      transform: 'rotateY(0deg)',
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget;
+                      el.style.transform = 'rotateY(180deg)';
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget;
+                      el.style.transform = 'rotateY(0deg)';
+                    }}
+                  >
+                    <div
+                      className="absolute w-full h-full p-8 rounded-2xl glass-effect border border-emerald-500/30 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-all"
+                      style={{ backfaceVisibility: 'hidden' }}
+                    >
+                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${item.gradient} mb-6 shadow-glow`}></div>
+                      <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                      <p className="text-xs text-slate-500">Hover to reveal</p>
+                    </div>
+
+                    <div
+                      className="absolute w-full h-full p-8 rounded-2xl glass-effect border border-emerald-500/30 flex items-center justify-center text-center bg-slate-900/50"
+                      style={{
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)',
+                      }}
+                    >
+                      <p className="text-slate-300 leading-relaxed">{item.flip}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card3D>
+              ))}
+            </div>
           </div>
         </section>
       </div>
