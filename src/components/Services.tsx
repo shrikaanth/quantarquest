@@ -1,4 +1,5 @@
 import { ArrowRight, Calendar, MessageCircle, Code, Users, Building2, Factory, Gamepad2, Cpu, CheckCircle, Layers } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Card3D from './Card3D';
 
 export default function Services() {
@@ -18,7 +19,8 @@ export default function Services() {
       outcomes: ['Faster releases', 'Safer deploys', 'Sane cloud bills'],
       icon: Code,
       gradient: 'from-cyan-500 to-emerald-500',
-      color: 'cyan'
+      color: 'cyan',
+      link: '/services/custom-software'
     },
     {
       title: 'C2H + DRM Teams',
@@ -146,13 +148,23 @@ export default function Services() {
                             </div>
                           </div>
 
-                          <a
-                            href={`#${service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 text-white font-bold hover:shadow-glow-lg transition-all duration-300 group"
-                          >
-                            <span>Explore Service</span>
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                          </a>
+                          {service.link ? (
+                            <Link
+                              to={service.link}
+                              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 text-white font-bold hover:shadow-glow-lg transition-all duration-300 group"
+                            >
+                              <span>Explore Service</span>
+                              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                          ) : (
+                            <a
+                              href={`#${service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 text-white font-bold hover:shadow-glow-lg transition-all duration-300 group"
+                            >
+                              <span>Explore Service</span>
+                              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
