@@ -1,46 +1,9 @@
-import { MessageCircle, Phone, Calendar, MapPin, Mail, Clock, Shield, Zap, CheckCircle, ArrowRight, User, Building, Code } from 'lucide-react';
+import { MessageCircle, Phone, Calendar, MapPin, Mail, Clock, Shield, CheckCircle, ArrowRight, User, Building, Code } from 'lucide-react';
 import Card3D from './Card3D';
-import WaveBackground from './WaveBackground';
-import FloatingShapes from './FloatingShapes';
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-slate-950">
-      <WaveBackground />
-      <FloatingShapes />
-
-      <nav className="relative border-b border-white/10 backdrop-blur-xl bg-slate-950/50 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-glow animate-glow">
-                <Zap className="w-6 h-6 text-white" fill="currentColor" />
-              </div>
-              <div className="text-2xl font-bold text-gradient">
-                Quantar Quest
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <a
-                href="#consultation"
-                className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl glass-effect text-white hover:bg-white/10 transition-all duration-300 group"
-              >
-                <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span className="font-medium">Book Consultation</span>
-              </a>
-              <a
-                href="#whatsapp"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 text-white font-medium hover:shadow-glow-lg transition-all duration-300 group"
-              >
-                <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span>WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <div className="relative">
+    <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-emerald-500/10" />
         <div className="absolute top-20 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px] animate-pulse-slow" />
         <div className="absolute bottom-40 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-[120px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
@@ -474,6 +437,5 @@ export default function Contact() {
           </div>
         </section>
       </div>
-    </div>
   );
 }
