@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Target, Users, Globe, Layers, Shield, TrendingUp, CheckCircle, ArrowRight, Calendar, MessageCircle } from 'lucide-react';
 import Card3D from './Card3D';
 
 export default function About() {
+  const [flippedCards, setFlippedCards] = useState<number[]>([]);
   return (
     <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-emerald-500/10" />
@@ -448,38 +450,17 @@ export default function About() {
                 <div
                   key={index}
                   className="group relative h-64 perspective cursor-pointer"
+                  onMouseEnter={() => setFlippedCards(prev => [...prev, index])}
+                  onMouseLeave={() => setFlippedCards(prev => prev.filter(i => i !== index))}
                 >
-                  <div
-                    className="relative w-full h-full transition-transform duration-500"
-                    style={{
-                      transformStyle: 'preserve-3d',
-                      transform: 'rotateY(0deg)',
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget;
-                      el.style.transform = 'rotateY(180deg)';
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget;
-                      el.style.transform = 'rotateY(0deg)';
-                    }}
-                  >
-                    <div
-                      className="absolute w-full h-full p-8 rounded-2xl glass-effect border border-emerald-500/30 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-all"
-                      style={{ backfaceVisibility: 'hidden' }}
-                    >
+                  <div className={`flip-card-inner ${flippedCards.includes(index) ? 'flipped' : ''}`}>
+                    <div className="flip-card-front p-8 rounded-2xl glass-effect border border-emerald-500/30 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-all">
                       <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${item.gradient} mb-6 shadow-glow`}></div>
                       <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
                       <p className="text-xs text-slate-500">Hover to reveal</p>
                     </div>
 
-                    <div
-                      className="absolute w-full h-full p-8 rounded-2xl glass-effect border border-emerald-500/30 flex items-center justify-center text-center bg-slate-900/50"
-                      style={{
-                        backfaceVisibility: 'hidden',
-                        transform: 'rotateY(180deg)',
-                      }}
-                    >
+                    <div className="flip-card-back p-8 rounded-2xl glass-effect border border-emerald-500/30 flex items-center justify-center text-center bg-slate-900/50">
                       <p className="text-slate-300 leading-relaxed">{item.flip}</p>
                     </div>
                   </div>

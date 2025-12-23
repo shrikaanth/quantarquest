@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Building2, Factory, Cpu, Gamepad2, Sparkles } from 'lucide-react';
 
 export default function Industries() {
+  const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const industries = [
     {
       icon: Building2,
@@ -58,29 +60,14 @@ export default function Industries() {
               <div
                 key={index}
                 className="group relative h-80 perspective cursor-pointer"
+                onMouseEnter={() => setFlippedCards(prev => [...prev, index])}
+                onMouseLeave={() => setFlippedCards(prev => prev.filter(i => i !== index))}
               >
-                <div
-                  className="relative w-full h-full transition-transform duration-500"
-                  style={{
-                    transformStyle: 'preserve-3d',
-                    transform: 'rotateY(0deg)',
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget;
-                    el.style.transform = 'rotateY(180deg)';
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget;
-                    el.style.transform = 'rotateY(0deg)';
-                  }}
-                >
+                <div className={`flip-card-inner ${flippedCards.includes(index) ? 'flipped' : ''}`}>
                   <div
                     className={`absolute -inset-1 bg-gradient-to-r ${industry.gradient} rounded-3xl opacity-0 group-hover:opacity-50 blur-xl transition duration-500`}
                   />
-                  <div
-                    className="absolute w-full h-full p-8 rounded-3xl glass-effect hover:bg-white/10 transition-all duration-500 flex flex-col justify-center"
-                    style={{ backfaceVisibility: 'hidden' }}
-                  >
+                  <div className="flip-card-front p-8 rounded-3xl glass-effect hover:bg-white/10 transition-all duration-500 flex flex-col justify-center">
                     <div className="mb-6">
                       <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl glass-effect border border-white/10 mb-4">
                         <Icon className="w-7 h-7 text-cyan-400" />
@@ -95,13 +82,7 @@ export default function Industries() {
                     <p className="text-xs text-slate-500 mt-4">Hover to reveal</p>
                   </div>
 
-                  <div
-                    className="absolute w-full h-full p-8 rounded-3xl glass-effect bg-slate-900/50 flex items-center justify-center"
-                    style={{
-                      backfaceVisibility: 'hidden',
-                      transform: 'rotateY(180deg)',
-                    }}
-                  >
+                  <div className="flip-card-back p-8 rounded-3xl glass-effect bg-slate-900/50 flex items-center justify-center">
                     <p className="text-slate-300 leading-relaxed text-sm">
                       {industry.back}
                     </p>

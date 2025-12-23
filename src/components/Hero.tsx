@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { ArrowRight, Calendar, MessageCircle, Sparkles } from 'lucide-react';
 import WaveBackground from './WaveBackground';
 import FloatingShapes from './FloatingShapes';
 import Navigation from './Navigation';
 
 export default function Hero() {
+  const [flippedCards, setFlippedCards] = useState<number[]>([]);
   return (
     <section className="relative overflow-hidden bg-slate-950">
       <WaveBackground />
@@ -83,26 +85,11 @@ export default function Hero() {
               key={index}
               className="group relative h-64 perspective cursor-pointer"
               style={{ animationDelay: `${0.9 + index * 0.1}s` }}
+              onMouseEnter={() => setFlippedCards(prev => [...prev, index])}
+              onMouseLeave={() => setFlippedCards(prev => prev.filter(i => i !== index))}
             >
-              <div
-                className="relative w-full h-full transition-transform duration-500"
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transform: 'rotateY(0deg)',
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget;
-                  el.style.transform = 'rotateY(180deg)';
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget;
-                  el.style.transform = 'rotateY(0deg)';
-                }}
-              >
-                <div
-                  className="absolute w-full h-full p-8 rounded-2xl glass-effect border border-cyan-500/30 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-all"
-                  style={{ backfaceVisibility: 'hidden' }}
-                >
+              <div className={`flip-card-inner ${flippedCards.includes(index) ? 'flipped' : ''}`}>
+                <div className="flip-card-front p-8 rounded-2xl glass-effect border border-cyan-500/30 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-all">
                   <div className={`text-3xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-3`}>
                     {stat.value}
                   </div>
@@ -110,13 +97,7 @@ export default function Hero() {
                   <p className="text-xs text-slate-500">Hover to reveal</p>
                 </div>
 
-                <div
-                  className="absolute w-full h-full p-8 rounded-2xl glass-effect border border-cyan-500/30 flex items-center justify-center text-center bg-slate-900/50"
-                  style={{
-                    backfaceVisibility: 'hidden',
-                    transform: 'rotateY(180deg)',
-                  }}
-                >
+                <div className="flip-card-back p-8 rounded-2xl glass-effect border border-cyan-500/30 flex items-center justify-center text-center bg-slate-900/50">
                   <p className="text-slate-300 text-sm leading-relaxed">{stat.flip}</p>
                 </div>
               </div>
