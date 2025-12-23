@@ -1,4 +1,4 @@
-import { MessageCircle, Phone, Calendar, MapPin, Mail, Clock, Shield, CheckCircle, ArrowRight, User, Building, Code } from 'lucide-react';
+import { MessageCircle, Phone, Calendar, MapPin, Mail, Clock, Shield, CheckCircle, ArrowRight, User, Building, Code, Zap } from 'lucide-react';
 import Card3D from './Card3D';
 
 export default function Contact() {
