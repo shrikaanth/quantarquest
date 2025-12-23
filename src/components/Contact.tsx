@@ -232,14 +232,14 @@ export default function Contact() {
                       <Code className="w-4 h-4 text-cyan-400" />
                       Project Type
                     </label>
-                    <select className="w-full px-4 py-3 rounded-xl glass-effect border border-white/10 text-white focus:border-cyan-500/50 focus:outline-none transition-colors">
-                      <option value="">Select a service</option>
-                      <option value="ai">AI & Automation</option>
-                      <option value="saas">SaaS / Product Engineering</option>
-                      <option value="qa">QA Engineering</option>
-                      <option value="bim">BIM / AEC</option>
-                      <option value="c2h">C2H / DRM Teams</option>
-                      <option value="other">Other</option>
+                    <select className="w-full px-4 py-3 rounded-xl glass-effect border border-white/10 text-white bg-slate-900/50 focus:border-cyan-500/50 focus:outline-none transition-colors">
+                      <option value="" style={{ backgroundColor: '#1e293b', color: '#ffffff' }}>Select a service</option>
+                      <option value="ai" style={{ backgroundColor: '#1e293b', color: '#ffffff' }}>AI & Automation</option>
+                      <option value="saas" style={{ backgroundColor: '#1e293b', color: '#ffffff' }}>SaaS / Product Engineering</option>
+                      <option value="qa" style={{ backgroundColor: '#1e293b', color: '#ffffff' }}>QA Engineering</option>
+                      <option value="bim" style={{ backgroundColor: '#1e293b', color: '#ffffff' }}>BIM / AEC</option>
+                      <option value="c2h" style={{ backgroundColor: '#1e293b', color: '#ffffff' }}>C2H / DRM Teams</option>
+                      <option value="other" style={{ backgroundColor: '#1e293b', color: '#ffffff' }}>Other</option>
                     </select>
                   </div>
 

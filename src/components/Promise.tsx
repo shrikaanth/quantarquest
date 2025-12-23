@@ -37,14 +37,8 @@ export default function Promise() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            {
-              icon: Shield,
-              title: 'Ownership by default',
-              description: 'Repos, pipelines, infra, docs — yours on day one.',
-              gradient: 'from-blue-500 via-blue-400 to-cyan-500'
-            },
             {
               icon: Users,
               title: 'Direct access',

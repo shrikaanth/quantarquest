@@ -37,10 +37,13 @@ export default function Footer() {
                 Quantar Quest
               </div>
             </div>
-            <p className="text-slate-400 leading-relaxed mb-6">
-              Your Team, On Your Terms. <span className="text-cyan-400">Own Everything.</span>
+            <p className="text-white font-bold leading-relaxed mb-2">
+              Your Team, On Your Terms
             </p>
-            <p className="text-slate-500 text-sm">
+            <p className="text-cyan-400 font-bold mb-4">
+              Own Everything
+            </p>
+            <p className="text-slate-400 leading-relaxed text-sm">
               Building resilient teams for markets that never stop moving.
             </p>
           </div>

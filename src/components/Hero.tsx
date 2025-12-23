@@ -26,16 +26,16 @@ export default function Hero() {
 
           <div className="space-y-4">
             <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-tight animate-slide-up">
-              <span className="block text-white drop-shadow-2xl">Smartly Built.</span>
-              <span className="block text-white drop-shadow-2xl">Fearlessly Scaled.</span>
-              <span className="block mt-4 bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="block text-white">Smartly Built.</span>
+              <span className="block text-white">Fearlessly Scaled.</span>
+              <span className="block mt-4 bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                 Market-Resilient.
               </span>
             </h1>
           </div>
 
           <p className="max-w-3xl mx-auto text-xl sm:text-2xl text-slate-300 leading-relaxed animate-fade-in font-light" style={{ animationDelay: '0.2s' }}>
-            We engineer <span className="text-cyan-400 font-semibold">adaptive systems</span> and <span className="text-emerald-400 font-semibold">elastic C2H + DRM teams</span> you fully control and own —
+            We engineer <span className="text-cyan-400 font-semibold">adaptive systems</span> and <span className="text-emerald-400 font-semibold">your extended office in India</span> you fully control and own —
             systems that <span className="text-blue-400 font-semibold">don't break when the market does.</span>
           </p>
 
@@ -72,26 +72,54 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in" style={{ animationDelay: '0.8s' }}>
           {[
-            { label: 'Direct Access', value: 'No Middle Layers', gradient: 'from-blue-500 to-cyan-500', icon: '⚡' },
-            { label: 'Elastic Scale', value: 'On Demand', gradient: 'from-cyan-500 to-emerald-500', icon: '📈' },
-            { label: 'Full Ownership', value: 'Day One', gradient: 'from-emerald-500 to-blue-500', icon: '🔑' },
-            { label: 'Zero Lock-ins', value: 'Leave Anytime', gradient: 'from-blue-500 to-cyan-500', icon: '🚀' }
+            { label: 'No Middle Layers', value: 'Direct Access', gradient: 'from-blue-500 to-cyan-500', flip: 'You speak directly with the people doing the work — no managers filtering reality.' },
+            { label: 'On Demand', value: 'Elastic Scale', gradient: 'from-cyan-500 to-emerald-500', flip: 'Add or reduce team capacity based on real workload, not fixed contracts.' },
+            { label: 'Day One', value: 'Full Ownership', gradient: 'from-emerald-500 to-blue-500', flip: 'From the first week, everything created belongs entirely to your company.' },
+            { label: 'Leave Anytime', value: 'Zero Lock-ins', gradient: 'from-blue-500 to-cyan-500', flip: 'You continue only as long as value is delivered — nothing is held back if you move on.' }
           ].map((stat, index) => (
             <div
               key={index}
-              className="group relative text-center p-8 rounded-2xl glass-effect hover:bg-white/10 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
+              className="group relative h-64 perspective cursor-pointer"
               style={{ animationDelay: `${0.9 + index * 0.1}s` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500" style={{
-                backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))`,
-              }} />
-              <div className="text-4xl mb-3 animate-float-delayed">{stat.icon}</div>
-              <div className={`text-3xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
-                {stat.value}
+              <div
+                className="relative w-full h-full transition-transform duration-500"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: 'rotateY(0deg)',
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget;
+                  el.style.transform = 'rotateY(180deg)';
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget;
+                  el.style.transform = 'rotateY(0deg)';
+                }}
+              >
+                <div
+                  className="absolute w-full h-full p-8 rounded-2xl glass-effect border border-cyan-500/30 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-all"
+                  style={{ backfaceVisibility: 'hidden' }}
+                >
+                  <div className={`text-3xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-3`}>
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-slate-400 font-medium mb-4">{stat.label}</div>
+                  <p className="text-xs text-slate-500">Hover to reveal</p>
+                </div>
+
+                <div
+                  className="absolute w-full h-full p-8 rounded-2xl glass-effect border border-cyan-500/30 flex items-center justify-center text-center bg-slate-900/50"
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                  }}
+                >
+                  <p className="text-slate-300 text-sm leading-relaxed">{stat.flip}</p>
+                </div>
               </div>
-              <div className="text-sm text-slate-400 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
