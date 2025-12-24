@@ -30,7 +30,8 @@ export default function Services() {
       outcomes: ['Elastic capacity', 'Zero middle layers', 'Hired after C2H evaluation'],
       icon: Users,
       gradient: 'from-emerald-500 to-blue-500',
-      color: 'emerald'
+      color: 'emerald',
+      link: '/services/c2h-drm'
     },
     {
       title: 'Real Estate / Construction / BIM',
@@ -38,7 +39,8 @@ export default function Services() {
       outcomes: ['Fewer meetings', 'Fewer change orders', 'Predictable handovers'],
       icon: Building2,
       gradient: 'from-blue-500 to-cyan-500',
-      color: 'blue'
+      color: 'blue',
+      link: '/services/real-estate-bim'
     },
     {
       title: 'Manufacturing & Industrial Solutions',
@@ -47,7 +49,8 @@ export default function Services() {
       outcomes: ['Production stability', 'Energy traceability', 'Real-time insights'],
       icon: Factory,
       gradient: 'from-cyan-500 to-emerald-500',
-      color: 'cyan'
+      color: 'cyan',
+      link: '/services/manufacturing'
     },
     {
       title: 'Gaming / iGaming',
@@ -56,7 +59,8 @@ export default function Services() {
       outcomes: ['Zero downtime', 'Safe scale', 'Market-ready resilience'],
       icon: Gamepad2,
       gradient: 'from-emerald-500 to-blue-500',
-      color: 'emerald'
+      color: 'emerald',
+      link: '/services/gaming'
     }
   ];
 
