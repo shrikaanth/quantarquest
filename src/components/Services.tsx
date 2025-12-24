@@ -21,7 +21,7 @@ export default function Services() {
       icon: Code,
       gradient: 'from-cyan-500 to-emerald-500',
       color: 'cyan',
-      link: '/services/custom-software'
+      link: '/services/saas-product'
     },
     {
       title: 'C2H + DRM Teams',

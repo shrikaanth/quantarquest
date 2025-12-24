@@ -4,6 +4,7 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import CustomSoftwarePage from './pages/CustomSoftwarePage';
 import AIAutomationPage from './pages/AIAutomationPage';
+import SaaSProductPage from './pages/SaaSProductPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -19,6 +20,7 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/custom-software" element={<CustomSoftwarePage />} />
           <Route path="/services/ai-automation" element={<AIAutomationPage />} />
+          <Route path="/services/saas-product" element={<SaaSProductPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <Footer />
