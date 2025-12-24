@@ -11,7 +11,8 @@ export default function Services() {
       outcomes: ['Cycle-time cuts', 'Error rates down', 'Decisions with telemetry'],
       icon: Cpu,
       gradient: 'from-blue-500 to-cyan-500',
-      color: 'blue'
+      color: 'blue',
+      link: '/services/ai-automation'
     },
     {
       title: 'SaaS / Product Engineering',
